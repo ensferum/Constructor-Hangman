@@ -1,0 +1,24 @@
+{
+  "name": "constructor-hangman",
+  "version": "1.0.0",
+  "description": "Constructor Hangman Homework",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ensferum/Constructor-Hangman.git"
+  },
+  "author": "Brian Yack",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ensferum/Constructor-Hangman/issues"
+  },
+  "homepage": "https://github.com/ensferum/Constructor-Hangman#readme",
+  "dependencies": {
+    "is-letter": "^1.1.1",
+    "inquirer": "^3.3.0"
+  },
+  "devDependencies": {}
+}
