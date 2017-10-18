@@ -19,7 +19,7 @@ var hangman = {
   wordBank: Game.newWord.wordList,
   guessesRemaining: 10,
   
-  guessedLetters: [],
+  lettersGuessed: [],
   
   display: 0,
   currentWord: null,
@@ -27,8 +27,8 @@ var hangman = {
   startGame: function() {
     var that = this;
   
-    if(this.guessedLetters.length > 0){
-      this.guessedLetters = [];
+    if(this.lettersGuessed.length > 0){
+      this.lettersGuessed = [];
     }
 
     inquirer.prompt([{
@@ -45,7 +45,7 @@ var hangman = {
  
   newGame: function() {
     if(this.guessesRemaining === 10) {
-      console.log("Let's Begin!");
+      console.log("Try to guess the correct names of different shark species!");
       console.log("~~~~~~~~~~~~~~~~~~");
       
       var randNum = Math.floor(Math.random()*this.wordBank.length);
@@ -81,14 +81,14 @@ var hangman = {
       var letterReturned = (ltr.chosenLtr).toUpperCase();
      
       var guessedAlready = false;
-        for(var i = 0; i<that.guessedLetters.length; i++){
-          if(letterReturned === that.guessedLetters[i]){
+        for(var i = 0; i<that.lettersGuessed.length; i++){
+          if(letterReturned === that.lettersGuessed[i]){
             guessedAlready = true;
           }
         }
        
         if(guessedAlready === false){
-          that.guessedLetters.push(letterReturned);
+          that.lettersGuessed.push(letterReturned);
 
           var found = that.currentWord.checkIfLetterFound(letterReturned);
          
@@ -101,7 +101,7 @@ var hangman = {
 
             console.log(that.currentWord.wordRender());
 
-            console.log("Letters guessed: " + that.guessedLetters);
+            console.log("Letters guessed: " + that.lettersGuessed);
           } else{
             console.log("Correct!");
           
@@ -114,7 +114,7 @@ var hangman = {
                 console.log("Guesses remaining: " + that.guessesRemaining);
                 console.log(that.currentWord.wordRender());
   
-                console.log("Letters guessed: " + that.guessedLetters);
+                console.log("Letters guessed: " + that.lettersGuessed);
               }
           }
           if(that.guessesRemaining > 0 && that.currentWord.wordFound === false) {
